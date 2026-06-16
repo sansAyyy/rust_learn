@@ -1,0 +1,9 @@
+[package]
+name = "async_programming"
+version = "0.1.0"
+edition = "2021"
+description = "Learning examples for async Rust with Tokio"
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+tokio = { version = "1", features = ["full"] }
