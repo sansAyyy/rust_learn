@@ -1,6 +1,6 @@
 # Rust Learn
 
-这是一个按学习阶段整理的 Rust 示例仓库。目标不是一次性写出完整项目，而是用一组可运行的小例子，把 Rust 的核心概念、项目组织和异步编程逐步练熟。
+这是一个按学习阶段整理的 Rust 示例仓库。目标不是一次性写出完整项目，而是用一组可运行的小例子，把 Rust 的核心概念、项目组织、异步编程和常用实战主题逐步练熟。
 
 ## 目录结构
 
@@ -15,7 +15,10 @@
 │   ├── src
 │   ├── examples
 │   └── tests
-└── 02 Async_Programming
+├── 02 Async_Programming
+│   ├── Cargo.toml
+│   └── src/bin
+└── 03 Practical_Topics
     ├── Cargo.toml
     └── src/bin
 ```
@@ -95,13 +98,37 @@ cargo run --bin 02_join_and_spawn
 cargo test
 ```
 
+### 03 Practical_Topics
+
+常用实战主题示例，使用真实项目里常见的第三方 crate。内容覆盖：
+
+- `clap` 命令行参数解析
+- 文件 IO 与路径处理
+- `serde` / `serde_json`
+- `reqwest` HTTP 客户端
+- `tracing` 结构化日志
+- TOML 配置与环境变量覆盖
+- JSON 持久化的小 todo CLI
+- 标准库线程与 channel 并发
+
+运行示例：
+
+```powershell
+cd "03 Practical_Topics"
+cargo run --bin 01_cli_with_clap -- greet Alice --shout
+cargo run --bin 03_json_with_serde
+cargo run --bin 07_small_todo_cli -- add "learn rust"
+cargo test
+```
+
 ## 建议学习方式
 
 1. 先按编号阅读 `00 Basics`，每个文件运行一次。
 2. 遇到注释中的“编译错误示例”，可以临时取消注释，观察编译器提示。
 3. 学完基础语法后，进入 `01 Cargo_Project_Organization`，理解真实项目如何组织代码。
 4. 再进入 `02 Async_Programming`，学习运行时、任务、并发和异步错误处理。
-5. 每学完一组，尝试把示例改一点，例如换输入、加字段、增加错误分支、拆模块。
+5. 最后进入 `03 Practical_Topics`，把语言能力落到 CLI、文件、JSON、HTTP、日志和配置这些常见任务上。
+6. 每学完一组，尝试把示例改一点，例如换输入、加字段、增加错误分支、拆模块。
 
 ## 常用命令
 
@@ -116,11 +143,10 @@ cargo run
 
 ## 当前阶段
 
-这个仓库已经覆盖 Rust 入门到进阶前半段的主要主题。下一步适合继续补充：
+这个仓库已经覆盖 Rust 入门到进阶前半段的主要主题，并开始进入实战应用。下一步适合继续补充：
 
-- 命令行工具实战
-- 文件 IO 与 JSON
-- HTTP 客户端/服务端
+- 更完整的命令行项目
+- HTTP 服务端
 - 数据库访问
 - 测试策略与 mock
 - 宏与过程宏
