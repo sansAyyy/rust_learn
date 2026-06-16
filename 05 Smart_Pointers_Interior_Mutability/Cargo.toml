@@ -1,0 +1,8 @@
+[package]
+name = "smart_pointers_interior_mutability"
+version = "0.1.0"
+edition = "2021"
+description = "Learning examples for Rust smart pointers and interior mutability"
+license = "MIT OR Apache-2.0"
+
+[dependencies]
