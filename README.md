@@ -1,6 +1,6 @@
 # Rust Learn
 
-这是一个按学习阶段整理的 Rust 示例仓库。目标不是一次性写出完整项目，而是用一组可运行的小例子，把 Rust 的核心概念、项目组织、异步编程、常用实战主题、测试与调试、智能指针与内部可变性逐步练熟。
+这是一个按学习阶段整理的 Rust 示例仓库。目标不是一次性写出完整项目，而是用一组可运行的小例子，把 Rust 的核心概念、项目组织、异步编程、常用实战主题、测试与调试、智能指针、内部可变性和并发进阶逐步练熟。
 
 ## 目录结构
 
@@ -25,7 +25,10 @@
 │   ├── Cargo.toml
 │   ├── src
 │   └── tests
-└── 05 Smart_Pointers_Interior_Mutability
+├── 05 Smart_Pointers_Interior_Mutability
+│   ├── Cargo.toml
+│   └── src/bin
+└── 06 Advanced_Concurrency
     ├── Cargo.toml
     └── src/bin
 ```
@@ -179,6 +182,31 @@ cargo run --bin 08_pointer_choice_guide
 cargo test
 ```
 
+### 06 Advanced_Concurrency
+
+并发进阶示例项目，覆盖标准库并发能力和常见工程模式：
+
+- 线程创建、命名、`join`
+- scoped thread
+- channel 工作队列
+- 共享状态与锁粒度
+- 原子类型
+- `Send` / `Sync` 边界
+- 简易线程池
+- 并行 map/reduce
+- 死锁风险与规避策略
+
+运行示例：
+
+```powershell
+cd "06 Advanced_Concurrency"
+cargo run --bin 01_thread_builder_and_join
+cargo run --bin 02_channels_work_queue
+cargo run --bin 06_simple_thread_pool
+cargo run --bin 08_deadlock_avoidance
+cargo test
+```
+
 ## 建议学习方式
 
 1. 先按编号阅读 `00 Basics`，每个文件运行一次。
@@ -188,7 +216,8 @@ cargo test
 5. 最后进入 `03 Practical_Topics`，把语言能力落到 CLI、文件、JSON、HTTP、日志和配置这些常见任务上。
 6. 用 `04 Testing_Debugging` 学会给代码加测试、看错误、打日志和跑工具链检查。
 7. 用 `05 Smart_Pointers_Interior_Mutability` 学习复杂数据结构中的共享所有权和内部可变性。
-8. 每学完一组，尝试把示例改一点，例如换输入、加字段、增加错误分支、拆模块。
+8. 用 `06 Advanced_Concurrency` 深入理解线程、消息传递、锁、原子类型和并发任务拆分。
+9. 每学完一组，尝试把示例改一点，例如换输入、加字段、增加错误分支、拆模块。
 
 ## 常用命令
 
@@ -203,7 +232,7 @@ cargo run
 
 ## 当前阶段
 
-这个仓库已经覆盖 Rust 入门到进阶前半段的主要主题，并开始进入实战应用、质量保障和复杂所有权建模。下一步适合继续补充：
+这个仓库已经覆盖 Rust 入门到进阶前半段的主要主题，并开始进入实战应用、质量保障、复杂所有权建模和并发设计。下一步适合继续补充：
 
 - 更完整的命令行项目
 - HTTP 服务端
