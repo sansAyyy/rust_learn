@@ -1,0 +1,9 @@
+[package]
+name = "macro_examples"
+version = "0.1.0"
+edition = "2021"
+description = "Examples for macro_rules and proc macros"
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+learning_macros = { path = "../learning_macros" }

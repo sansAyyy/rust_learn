@@ -1,6 +1,6 @@
 # Rust Learn
 
-这是一个按学习阶段整理的 Rust 示例仓库。目标不是一次性写出完整项目，而是用一组可运行的小例子，把 Rust 的核心概念、项目组织、异步编程、常用实战主题、测试与调试、智能指针、内部可变性和并发进阶逐步练熟。
+这是一个按学习阶段整理的 Rust 示例仓库。目标不是一次性写出完整项目，而是用一组可运行的小例子，把 Rust 的核心概念、项目组织、异步编程、常用实战主题、测试与调试、智能指针、内部可变性、并发进阶和宏逐步练熟。
 
 ## 目录结构
 
@@ -28,9 +28,13 @@
 ├── 05 Smart_Pointers_Interior_Mutability
 │   ├── Cargo.toml
 │   └── src/bin
-└── 06 Advanced_Concurrency
+├── 06 Advanced_Concurrency
+│   ├── Cargo.toml
+│   └── src/bin
+└── 07 Macros_Proc_Macros
     ├── Cargo.toml
-    └── src/bin
+    ├── macro_examples
+    └── learning_macros
 ```
 
 ## 学习路线
@@ -207,6 +211,29 @@ cargo run --bin 08_deadlock_avoidance
 cargo test
 ```
 
+### 07 Macros_Proc_Macros
+
+宏与过程宏 workspace，覆盖声明宏和三类过程宏：
+
+- `macro_rules!`
+- 宏重复匹配
+- 常见内置宏
+- 自定义 derive 宏
+- 函数式过程宏
+- 属性宏
+- `syn` / `quote` / `proc_macro`
+
+运行示例：
+
+```powershell
+cd "07 Macros_Proc_Macros"
+cargo run -p macro_examples --bin 01_macro_rules_basics
+cargo run -p macro_examples --bin 02_macro_rules_repetition
+cargo run -p macro_examples --bin 03_builtin_macros
+cargo run -p macro_examples --bin 04_using_proc_macros
+cargo test
+```
+
 ## 建议学习方式
 
 1. 先按编号阅读 `00 Basics`，每个文件运行一次。
@@ -217,7 +244,8 @@ cargo test
 6. 用 `04 Testing_Debugging` 学会给代码加测试、看错误、打日志和跑工具链检查。
 7. 用 `05 Smart_Pointers_Interior_Mutability` 学习复杂数据结构中的共享所有权和内部可变性。
 8. 用 `06 Advanced_Concurrency` 深入理解线程、消息传递、锁、原子类型和并发任务拆分。
-9. 每学完一组，尝试把示例改一点，例如换输入、加字段、增加错误分支、拆模块。
+9. 用 `07 Macros_Proc_Macros` 理解 `println!`、`vec!`、`derive` 和属性宏背后的代码生成机制。
+10. 每学完一组，尝试把示例改一点，例如换输入、加字段、增加错误分支、拆模块。
 
 ## 常用命令
 
@@ -232,11 +260,10 @@ cargo run
 
 ## 当前阶段
 
-这个仓库已经覆盖 Rust 入门到进阶前半段的主要主题，并开始进入实战应用、质量保障、复杂所有权建模和并发设计。下一步适合继续补充：
+这个仓库已经覆盖 Rust 入门到进阶前半段的主要主题，并开始进入实战应用、质量保障、复杂所有权建模、并发设计和代码生成。下一步适合继续补充：
 
 - 更完整的命令行项目
 - HTTP 服务端
 - 数据库访问
 - 更系统的 mock 与测试替身
-- 宏与过程宏
 - unsafe Rust 入门
