@@ -1,0 +1,26 @@
+[package]
+name = "cargo_project_organization"
+version = "0.1.0"
+edition = "2021"
+authors = ["Rust Learner"]
+description = "Learning examples for Cargo and Rust project organization"
+license = "MIT OR Apache-2.0"
+
+# Cargo.toml 是 Cargo 项目的清单文件。
+# 常见区域：
+# [package]      描述当前包 package 的元数据。
+# [dependencies] 声明运行时依赖。
+# [dev-dependencies] 声明测试、示例、基准等开发阶段依赖。
+# [features]     声明可选功能开关。
+
+[dependencies]
+# 示例：
+# serde = { version = "1", features = ["derive"] }
+
+[dev-dependencies]
+# 示例：
+# pretty_assertions = "1"
+
+[features]
+default = []
+cli-output = []
