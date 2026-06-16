@@ -1,6 +1,6 @@
 # Rust Learn
 
-这是一个按学习阶段整理的 Rust 示例仓库。目标不是一次性写出完整项目，而是用一组可运行的小例子，把 Rust 的核心概念、项目组织、异步编程和常用实战主题逐步练熟。
+这是一个按学习阶段整理的 Rust 示例仓库。目标不是一次性写出完整项目，而是用一组可运行的小例子，把 Rust 的核心概念、项目组织、异步编程、常用实战主题、测试与调试逐步练熟。
 
 ## 目录结构
 
@@ -18,9 +18,13 @@
 ├── 02 Async_Programming
 │   ├── Cargo.toml
 │   └── src/bin
-└── 03 Practical_Topics
+├── 03 Practical_Topics
+│   ├── Cargo.toml
+│   └── src/bin
+└── 04 Testing_Debugging
     ├── Cargo.toml
-    └── src/bin
+    ├── src
+    └── tests
 ```
 
 ## 学习路线
@@ -121,6 +125,31 @@ cargo run --bin 07_small_todo_cli -- add "learn rust"
 cargo test
 ```
 
+### 04 Testing_Debugging
+
+测试与调试示例项目，覆盖 Rust 项目里常见的质量保障手段：
+
+- 单元测试
+- 集成测试
+- 文档测试
+- `Result` 返回值测试
+- `#[should_panic]`
+- 测试辅助模块
+- 临时文件测试
+- `dbg!`、`eprintln!`
+- `tracing` 日志调试
+- `cargo fmt`、`cargo clippy`、`cargo test`
+
+运行示例：
+
+```powershell
+cd "04 Testing_Debugging"
+cargo test
+cargo test -- --nocapture
+cargo run --bin 01_debug_macros
+cargo run --bin 02_logging_debug
+```
+
 ## 建议学习方式
 
 1. 先按编号阅读 `00 Basics`，每个文件运行一次。
@@ -128,7 +157,8 @@ cargo test
 3. 学完基础语法后，进入 `01 Cargo_Project_Organization`，理解真实项目如何组织代码。
 4. 再进入 `02 Async_Programming`，学习运行时、任务、并发和异步错误处理。
 5. 最后进入 `03 Practical_Topics`，把语言能力落到 CLI、文件、JSON、HTTP、日志和配置这些常见任务上。
-6. 每学完一组，尝试把示例改一点，例如换输入、加字段、增加错误分支、拆模块。
+6. 用 `04 Testing_Debugging` 学会给代码加测试、看错误、打日志和跑工具链检查。
+7. 每学完一组，尝试把示例改一点，例如换输入、加字段、增加错误分支、拆模块。
 
 ## 常用命令
 
@@ -143,11 +173,11 @@ cargo run
 
 ## 当前阶段
 
-这个仓库已经覆盖 Rust 入门到进阶前半段的主要主题，并开始进入实战应用。下一步适合继续补充：
+这个仓库已经覆盖 Rust 入门到进阶前半段的主要主题，并开始进入实战应用与质量保障。下一步适合继续补充：
 
 - 更完整的命令行项目
 - HTTP 服务端
 - 数据库访问
-- 测试策略与 mock
+- 更系统的 mock 与测试替身
 - 宏与过程宏
 - unsafe Rust 入门
